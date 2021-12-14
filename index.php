@@ -1,16 +1,20 @@
 <?php
 
 require "kon_db.php";
+require "korisnik.php";
 
 session_start();
-if (isset($_POST['ime']) && isset($_POST['sifra'])) {
-    $korime= $_POST['ime'];
+if (isset($_POST['kor_ime']) && isset($_POST['sifra'])) {
+    $korime= $_POST['kor_ime'];
     $sif= $_POST['sifra'];
 
 
-$kveri = "SELECT * FROM korisnik WHERE korisnicko_ime='$korime' AND sifra='$sif'";
 
-$rezultat = mysqli_query($kon, $kveri);
+$korisnik = new Korisnik(1, $korime, $sif);
+    
+    $rezultat = Korisnik::ulogujKorisnika($korisnik, $kon);
+
+
 
 if($rezultat->num_rows==1){
     $row = mysqli_fetch_assoc($rezultat);
@@ -44,7 +48,7 @@ if($rezultat->num_rows==1){
     <form method="post">
         <h2>PRIJAVI SE NA SISTEM</h2>
     <label for="ime">Korisncko ime</label>
-    <input type="text" name="ime" id="ime">
+    <input type="text" name="kor_ime" id="ime">
 
     <label for="sifra">Sifra</label>
     <input type="password" name="sifra" id="sifra">

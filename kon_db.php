@@ -5,11 +5,12 @@ $baza = "izdavanje_zahteva";
 $user = "root";
 $sifra = "";
 
-$kon = mysqli_connect($host,$user,$sifra,$baza);
+$kon = new mysqli($host,$user,$sifra,$baza);
 
-if (!$kon) {
-    echo "Konekcija nije uspela!";
-}
+if ($kon->errno) {
+    printf("Connect failed: %sn", $kon->errno);
+    exit();
+ }
 
 
 ?>
