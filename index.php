@@ -12,7 +12,7 @@ if (isset($_POST['kor_ime']) && isset($_POST['sifra'])) {
 
 $korisnik = new Korisnik(1, $korime, $sif);
     
-    $rezultat = Korisnik::ulogujKorisnika($korisnik, $kon);
+ $rezultat = Korisnik::ulogujKorisnika($korisnik, $kon);
 
 
 
