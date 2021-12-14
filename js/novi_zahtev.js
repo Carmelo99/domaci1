@@ -6,4 +6,21 @@ function prikaziGrad(gradId1, gradId2, gradId3, element)
 }
 
 
+$(document).ready(function(){
+$("#submit2").submit(function(event) {
+event.preventDefault();
+   
+$.ajax ({
+type:"POST",
+url:"novi_zahtev.php",
+data:"",
+cache:"false",
+success:function(){
+    $("#formaZahteva")[0].reset();
+    alert("Podaci poslati bez ponovnog ucitavanja stranice!");  
+}
+});
 
+
+});
+});
