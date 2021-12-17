@@ -7,7 +7,7 @@ function prikaziGrad(gradId1, gradId2, gradId3, element)
 
 
 $(document).ready(function(){
-$("#submit2").submit(function(event) {
+$("#submit2").click(function(event) {
 event.preventDefault();
    
 $.ajax ({
@@ -19,6 +19,7 @@ success:function(){
     $("#formaZahteva")[0].reset();
     alert("Podaci poslati bez ponovnog ucitavanja stranice!");  
 }
+
 });
 
 
