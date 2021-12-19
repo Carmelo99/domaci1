@@ -19,6 +19,7 @@ $korisnik = new Korisnik(1, $korime, $sif);
 if($rezultat->num_rows==1){
     $row = mysqli_fetch_assoc($rezultat);
         $_SESSION['korisnik_id']=$row['id'];
+        $_SESSION['korisnicko_ime']=$_POST['kor_ime'];
       
     header('Location: novi_zahtev.php');
     exit();

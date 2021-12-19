@@ -27,6 +27,16 @@ class Zahtev{
         return $kon->query($kveri);
        
     }
+
+    public static function vratiZahteve(mysqli $kon)
+    {
+        $query = "SELECT * FROM `zahtevi_korisnika`";
+        return $kon->query($query);
+    }
+
+
+
+
 }
 
 ?>
