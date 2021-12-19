@@ -73,9 +73,9 @@ input[type=text] {
   }
 
   #submit2 {
-  /* remove default behavior */
-  appearance:none;
-  -webkit-appearance:none;
+   /* remove default behavior  */
+   appearance:none;
+  -webkit-appearance:none; 
 
   padding:10px;
   border:none;

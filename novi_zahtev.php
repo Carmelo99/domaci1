@@ -36,8 +36,6 @@ $zahtev1=new Zahtev(null,$fime,$fprezime,$fnacionalnost,$fgrad,$fzahtev);
     exit();
  }
 
-
-
  header('Location: zahtevi.php');
  exit();
 

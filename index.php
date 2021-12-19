@@ -47,7 +47,7 @@ if($rezultat->num_rows==1){
 <body>
     <form method="post">
         <h2>PRIJAVI SE NA SISTEM</h2>
-    <label for="ime">Korisncko ime</label>
+    <label for="ime">Korisnicko ime</label>
     <input type="text" name="kor_ime" id="ime">
 
     <label for="sifra">Sifra</label>
