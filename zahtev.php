@@ -34,8 +34,17 @@ class Zahtev{
         return $kon->query($query);
     }
 
+    public static function vratiOdredjeniZahtev($id, mysqli $kon) {
+        $query= "SELECT * FROM `zahtevi_korisnika` WHERE id=$id";
+        return $kon->query($query);
+    }
 
 
+    public function update($id, mysqli $kon)
+    {
+        $query = "UPDATE `zahtevi_korisnika` set zahtev = $this->zahtev WHERE id=$id";
+        return $kon->query($query);
+    }
 
 }
 

@@ -43,7 +43,7 @@ $podaci = Zahtev::vratiZahteve($kon);
         </div>
     </nav>
 
-<div class="container">
+<div class="container" id="container">
     <table class="tabela">
         <thead>
         <tr>
@@ -65,11 +65,10 @@ $podaci = Zahtev::vratiZahteve($kon);
         <td><?php echo $red['prezime'];?></td>
         <td><?php echo $red['nacionalnost'];?></td>
         <td><?php echo $red['grad'];?></td>
-        <td><?php echo $red['zahtev'];?></td>
-        <td><form action="" method="post">
-                    <input type="submit" class="izmeni" name="submit" value="Izmeni">
-                </form>
-                </td>
+        
+        <td id="promeniZahtev"><?php echo $red['zahtev'];?></td>
+        
+        <td><input type="button" name="edit" value="Izmeni" id="<?php echo $red["id"]; ?>" class="btn btn-info edit_data" /></td>
         </tr>
         <?php endwhile; ?>
         
@@ -78,16 +77,38 @@ $podaci = Zahtev::vratiZahteve($kon);
 
 
 
+<!-- PHP Ajax Update MySQL Data Through Bootstrap Modal -->
+<div id="add_data_Modal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                       <h4 class="modal-title">Izmeni zahtev</h4>  
+                       <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                </div>  
+                <div class="modal-body">  
+                     <form method="post" id="insert_form">  
+                          <label>Unesite novi zahtev</label>  
+                          <input type="text" name="zahtev1" id="zahtev1" class="form-control" />  
+                          <br />  
+                          <input type="hidden" name="id_zahteva" id="id_zahteva" />  
+                          <input type="submit" name="izmeni1" id="insert" value="Izmeni" class="btn btn-success" />  
+                     </form>  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">Zatvori</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>
 
 
 
-
-
-    <script
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
-<script src="js/novi_zahtev.js"></script>
+  crossorigin="anonymous"></script> -->
+<script src="js/zahtevi.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>
