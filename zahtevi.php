@@ -47,10 +47,11 @@ $podaci = Zahtev::vratiZahteve($kon);
     <table class="tabela">
         <thead>
         <tr>
-        <th colspan="6"><h2>Zahtevi korisnika '<?php echo $_SESSION['korisnicko_ime'];?>'</h2></th>
+        <th colspan="7"><h2>Zahtevi korisnika '<?php echo $_SESSION['korisnicko_ime'];?>'</h2></th>
         </tr>
         <tr>
         </thead>
+            <td></td>
             <td>Ime</td>
             <td>Prezime</td>
             <td>Nacionalnost</td>
@@ -61,6 +62,7 @@ $podaci = Zahtev::vratiZahteve($kon);
     while ($red=mysqli_fetch_assoc($podaci)) :
        ?>
        <tr>
+        <td><input type="checkbox" name="cekboks" value=<?php echo $red["id"] ?>></td>
         <td><?php echo $red['ime'];?></td>
         <td><?php echo $red['prezime'];?></td>
         <td><?php echo $red['nacionalnost'];?></td>
@@ -69,10 +71,18 @@ $podaci = Zahtev::vratiZahteve($kon);
         <td id="promeniZahtev"><?php echo $red['zahtev'];?></td>
         
         <td><input type="button" name="edit" value="Izmeni" id="<?php echo $red["id"]; ?>" class="btn btn-info edit_data" /></td>
+        
         </tr>
         <?php endwhile; ?>
-        
+        <tfoot>
+            <tr>
+        <td><button id="obrisiDugme" formmethod="post" class="dugmeBrisanje" style=" background-color: deepskyblue; color:white; border: 1px solid white; border-radius:20px;">Obrisi</button></td>
+        </tr>
+    </tfoot>
+    
         </table>
+        
+
 </div>
 
 

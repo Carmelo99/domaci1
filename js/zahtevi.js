@@ -22,6 +22,8 @@ $.ajax ({
 
 });
 
+
+
 $('#insert_form').on("submit",function(event) {
 event.preventDefault();
 if ($('#zahtev1').val()=="") {
@@ -36,9 +38,9 @@ if ($('#zahtev1').val()=="") {
         },
         success: function(data) {
             $('#insert_form')[0].reset();
+            $('.tabela')[0].reset();
             $('#add_data_Modal').modal('hide');
             $('#promeniZahtev').html(data);
-            location.reload();
         }
 
 
@@ -47,6 +49,37 @@ if ($('#zahtev1').val()=="") {
 }
 
 });
+
+
+
+
+
+$('#obrisiDugme').click(function(){
+
+     var zaBrisanje = $('input[name=cekboks]:checked');
+
+     $.ajax ({
+         url: 'pomocne/delete.php',
+         type:'post',
+         data: { zahtev_id:zaBrisanje.val()},
+        success: function(rez) {
+            if (rez=="Da") {
+         zaBrisanje.closest('tr').remove();
+         alert("Uspesno obrisan zahtev!");
+            } else {
+                alert("Niste izabrali nijedan zahtev!");
+            }
+         
+     },
+         error: function() {
+         alert("Doslo je do greske, neuspesno brisanje!");
+     }
+
+
+ });
+
+});
+
 
 
 
