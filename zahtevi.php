@@ -44,27 +44,28 @@ $podaci = Zahtev::vratiZahteve($kon);
     </nav>
 
 <div class="container" id="container">
-    <table class="tabela">
+    <table class="tabela" id="tabela">
         <thead>
         <tr>
         <th colspan="7"><h2>Zahtevi korisnika '<?php echo $_SESSION['korisnicko_ime'];?>'</h2></th>
         </tr>
         <tr>
         </thead>
-            <td></td>
-            <td>Ime</td>
-            <td>Prezime</td>
-            <td>Nacionalnost</td>
-            <td>Grad</td>
-            <td>Zahtev</td>
+            <th></th>
+            <th id="imeKorisnika1" >Ime</th>
+            <th id="prezimeKorisnika1" >Prezime</th>
+            <th>Nacionalnost</th>
+            <th>Grad</th>
+            <th>Zahtev</th>
         </tr>
+        <tbody id="teloTabele">
        <?php
     while ($red=mysqli_fetch_assoc($podaci)) :
        ?>
        <tr>
         <td><input type="checkbox" name="cekboks" value=<?php echo $red["id"] ?>></td>
-        <td><?php echo $red['ime'];?></td>
-        <td><?php echo $red['prezime'];?></td>
+        <td id="imeKorisnika"><?php echo $red['ime'];?></td>
+        <td id="prezimeKorisnika"><?php echo $red['prezime'];?></td>
         <td><?php echo $red['nacionalnost'];?></td>
         <td><?php echo $red['grad'];?></td>
         
@@ -74,6 +75,7 @@ $podaci = Zahtev::vratiZahteve($kon);
         
         </tr>
         <?php endwhile; ?>
+        </tbody>
         <tfoot>
             <tr>
         <td><button id="obrisiDugme" formmethod="post" class="dugmeBrisanje" style=" background-color: deepskyblue; color:white; border: 1px solid white; border-radius:20px;">Obrisi</button></td>
@@ -82,6 +84,7 @@ $podaci = Zahtev::vratiZahteve($kon);
     
         </table>
         
+       
 
 </div>
 
@@ -120,5 +123,9 @@ $podaci = Zahtev::vratiZahteve($kon);
   crossorigin="anonymous"></script> -->
 <script src="js/zahtevi.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+
+
 </body>
 </html>

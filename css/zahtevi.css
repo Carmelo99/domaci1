@@ -68,15 +68,9 @@
 }
 
 
-
-/* .izmeni {
-    background-color: #fd5a5a;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    border-style: none;
-    border-radius: 10px;
-    color: whitesmoke;
-} */
+#imeKorisnika1, #prezimeKorisnika1 {
+    cursor: pointer;
+}
 
 
 
