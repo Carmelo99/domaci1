@@ -92,6 +92,11 @@ input[type=text] {
 }
 
 
+#imePoruka, #prezimePoruka {
+    color: red;
+}
+
+
 
 
 #gradovi1, #gradovi2, #gradovi3 {
@@ -104,3 +109,5 @@ input[type=text] {
         flex-direction: column;
     }
 }
+
+
